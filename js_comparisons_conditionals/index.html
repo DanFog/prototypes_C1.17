@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparison Conditionals</title>
+
+    <script>
+        var mySmallNumber = 5;
+        var myString = "5";
+        var myBigNumber = 255;
+        var output1 = mySmallNumber == myString;
+        var output2 = mySmallNumber === myString;
+        var output3 = mySmallNumber < myBigNumber;
+        var output4 = mySmallNumber > myBigNumber;
+
+        console.log("My output1: ", output1);
+        console.log("My output2: ", output2);
+        console.log("My output3: ", output3);
+        console.log("My output4: ", output4);
+
+        var gameNumber = 64;
+        var userInput1 = 77;
+        var userInput2 = gameNumber;
+
+        if (userInput1 > gameNumber) {
+            console.log("The number is too high.");
+        }
+
+        if (userInput1 < gameNumber) {
+            console.log("The number is too low.");
+        }
+
+        if (userInput1 < 1 || userInput1 > 100) {
+            console.log("Your number is out of the range. Try again with a number between 1 and 100.");
+        } else {
+            console.log("Your number is within the range");
+        }
+
+        if (userInput2 == gameNumber) {
+            console.log("The number you entered is correct!");
+        } else {
+            console.log("Try again.");
+        }
+
+        switch (userInput1) {
+            case gameNumber:
+                console.log("You found the correct number!");
+                break;
+            case gameNumber - 10:
+                console.log("You are to low but warm");
+                break;
+            case gameNumber - 25:
+                console.log("You are too low and cold");
+                break;
+            case gameNumber + 10:
+                console.log("You are too high but warm");
+                break;
+            case gameNumber + 25:
+                console.log("You are too high and cold");
+                break;
+            default:
+                console.log("You are way off.")
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
