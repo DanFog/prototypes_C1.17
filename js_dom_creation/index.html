@@ -41,10 +41,66 @@
     <script>
         $(document).ready(function () {
             //playground 1 code
+            var playground1_h1 = $('<h1>', {
+                text: "I am a heading"
+            });
+            var playground1_p = $('<p>', {
+                text: "this is an awesome paragraph"
+            });
+            var playground1_p_2 = $('<p>', {
+                text: "This has red text",
+                style: "color: red"
+            });
+            $('#playground1').append(playground1_h1, playground1_p, playground1_p_2);
 
             //playground 2 code
+            var playground2_div1 = $('<div>', {
+                class: 'awesome_class',
+                text: 'Here is some awesome div text'
+            });
+            var playground2_div2 = $('<div>', {
+                class: 'awesome_class',
+                id: 'my_awesome_div2',
+                text: 'Here is MORE awesome div text'
+            });
+            var playground2_div3 = $('<div>', {
+                class: 'awesome_class',
+                id: 'my_awesome_div3',
+                'data-coolness': 'high',
+                html: 'Here is <strong>EVEN MORE</strong> awesome div text'
+            });
+            $('#playground2').append(playground2_div1, playground2_div2, playground2_div3);
 
             //playground 3 code
+
+            var playground3_ul = $('<ul>', {
+                class: "neato"
+            });
+            var playground3_li1 = $('<li>', {
+                text: "Link 1"
+            });
+            var playground3_li2 = $('<li>', {
+                text: "Link 2"
+            });
+            var playground3_li3 = $('<li>', {
+                text: "Link 3"
+            });
+            var playground3_figure = $('<figure>', {
+                class: "awesome_picture"
+            });
+            var playground3_img = $('<img>', {
+                src: "http://comerecommended.com/wp-content/uploads/2013/01/how-to-get-awesome-back.jpg"
+            });
+            var playground3_figcaption = $('<figcaption>', {
+                html: 'That\'s right, <span class="bold_text">you are</span>'
+            });
+
+            playground3_li1.appendTo(playground3_ul);
+            playground3_li2.appendTo(playground3_ul);
+            playground3_li3.appendTo(playground3_ul);
+            playground3_img.appendTo(playground3_figure);
+            playground3_figcaption.appendTo(playground3_figure);
+            $('#playground3').append(playground3_ul, playground3_figure);
         });
     </script>
 </head>
