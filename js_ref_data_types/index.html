@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Reference Data Types</title>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script>
+        var student_array = ["Daniel Fogerty", "Andy Ong", "Derrick Sebesta", "Gwenever Pacifico", "Ken Wolfson"];
+        console.log(student_array[2]);
+        console.log(student_array);
+        console.log(student_array.length);
+        student_array.push("Yaeri Lim", "Tim Feng");
+        console.log(student_array.length);
+        console.log(student_array);
+
+        //feature set 2
+        var student = {};
+        student.firstName = "Daniel";
+        student.lastName = "Fogerty";
+        student.age = 22;
+        student.school = "LearningFuze";
+        student.questionList = [];
+        student.hasQuestion = false;
+        student.greeting = function() {
+            return "Hello my name is " + student.firstName;
+        };
+        student.aboutMe = function() {
+          return "My full name is " + student.firstName + ", I am " + student.age + " years old and I am a student at " + student.school + ".";
+        };
+        student.askQuestion= function(question) {
+            student.questionList.push(question);
+            student.hasQuestion = true;
+            return "A question has been added to your list";
+        };
+        student.answerQuestion = function() {
+            if (student.hasQuestion == false) {
+                return "You have no pending questions";
+            } else {
+                student.hasQuestion = false;
+                return student.questionList[student.questionList.length-1];
+
+            }
+
+        };
+        console.log("Greeting function: " + student.greeting());
+        console.log("About me function: " + student.aboutMe());
+        console.log("Answer question function: " + student.answerQuestion());
+        console.log("Ask question function: " + student.askQuestion("Test Question 1"));
+        console.log("Ask question function: " + student.askQuestion("Test Question 2"));
+        console.log("Ask question function: " + student.askQuestion("Test Question 3"));
+        console.log("Answer Question function: " + student.answerQuestion());
+    </script>
+</head>
+<body>
+
+</body>
+</html>
