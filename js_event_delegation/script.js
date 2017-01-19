@@ -14,6 +14,11 @@ $('document').ready(function() {
     $('#list').on('click', '.google', function () {
         window.open('https://www.google.com/');
     });
+    $('#list').on('click', 'button', function() {
+        if($(this).attr('what-is-this') == 'who knows') {
+            console.log("has attribute 'what is this' and value 'who knows'.");
+        }
+    });
     var delegated_li = $('<li>');
     var delegated_button = $('<button>', {
         style: 'margin-top: 10px',
@@ -21,6 +26,7 @@ $('document').ready(function() {
     });
     var google_li = $('<li>');
     var google_button = $('<button>', {
+        'what-is-this': 'who knows',
         class: 'google',
         style: 'margin-top: 10px',
         text: 'google.com'
