@@ -14,9 +14,9 @@ $('document').ready(function() {
     $('#list').on('click', '.google', function () {
         window.open('https://www.google.com/');
     });
-    $('#list').on('click', 'button', function() {
-        if($(this).attr('what-is-this') == 'who knows') {
-            console.log("has attribute 'what is this' and value 'who knows'.");
+    $('body').on('click', function() {
+        if(event.target.matches('button')) {
+            console.log("you clicked a button ");
         }
     });
     var delegated_li = $('<li>');
