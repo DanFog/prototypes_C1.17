@@ -1,4 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="to.js"></script>
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+
 <?php
+
 //EXERCISE 1
 
 $variable1 = 'hello';
@@ -22,7 +35,7 @@ for($i = 1; $i < count( $numbers); $i++)
 
 echo 'Result = '.$result;
 
-//EXERCISE 4 
+//EXERCISE 4
 
 print('This is a string' . 'This is another string');
 
