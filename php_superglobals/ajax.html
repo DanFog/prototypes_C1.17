@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+  $(document).ready(attachClickHandler);
+
+  function attachClickHandler() {
+    $('#button').on('click', callAjax);
+  }
+
+  function callAjax() {
+    var checkbox = $('#checkbox').val();
+    var text = $('#textinput').val();
+    $.ajax({
+      url: 'index.php',
+      dataType: 'text',
+      method: 'get',
+      data: {'checkbox': checkbox, 'textinput': text},
+      success: function(response) {
+        console.log(response);
+      }
+    });
+  }
+  </script>
+</head>
+<body>
+  <form>
+    <input type="checkbox" value="howdy" id="checkbox">
+    <textarea id="textinput"></textarea>
+    <button type="button" id="button">Click Me!</button>
+  </form>
+</body>
+</html>
