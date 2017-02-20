@@ -1,12 +1,68 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="ang_controllers_app">
 <head>
     <meta charset="UTF-8">
     <title>Angular Controllers</title>
     <!-- Add the AngularJS CDN below -->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 </head>
 <body>
+  <div ng-controller="formController as fc">
+    <div>
+      <input type="text" ng-model="fc.form.fName">
+      <input type="text" ng-model="fc.form.lName">
+      <input type="text" ng-model="fc.form.email">
+      <textarea name="comments" ng-model="fc.form.comments" ng-disabled="fc.disableInput()"></textarea>
+      <p>Characters remaining: {{ fc.remaining() }}</p>
+      <button type="default" name="button" ng-click="fc.addForm()">Submit</button>
+    </div>
+    <div>
+      <table>
+        <tr>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Comments</th>
+        </tr>
+        <tr ng-repeat="key in fc.formArray">
+          <td>{{ key.fName + " " + key.lName }}</td>
+          <td>{{ key.email }}</td>
+          <td>{{ key.comments }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <script>
+    var app = angular.module("ang_controllers_app", []);
 
+    app.controller("formController", function() {
+      var self = this;
+      self.maxlength = 25;
+      self.form = {};
+      self.formArray = [];
+      self.characters
+
+      self.addForm = function() {
+        self.formArray.push(self.form);
+        self.form = {};
+      };
+
+      self.remaining = function() {
+        if (self.form.comments) {
+          return self.characters = self.maxlength - this.form.comments.length;
+        } else {
+          return self.characters = self.maxlength;
+        }
+
+      };
+
+      this.disableInput = function() {
+        if (self.characters <= 0) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    });
+  </script>
 </body>
 </html>
