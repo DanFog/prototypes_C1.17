@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Node SQL</title>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
+	<div id="data_container">
+		
+	</div>
+	<script>
+		$.ajax({
+			url: '/api',
+			dataType: 'json',
+			method: 'get',
+			success: function(res) {
+				var div = $("<div>").text(JSON.stringify(res));
+				$('#data_container').append(div);
+			},
+			error: function(res) {
+				console.log('error: ', error)
+			}
+		})
+	</script>
 <!-- 
 create your ajax request to getData.js.  Remember it is on your node server, so make sure the request is going to the appropriate port.  Then present the json data into your page 
 -->
