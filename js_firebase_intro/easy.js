@@ -11,7 +11,7 @@ $(document).ready(function(){
         $('#add-student').removeClass('btn-info').addClass('btn-success').attr('data-uid', null).text('Add Student');
         clearForm();
     });
-
+    
     $('.sgt').on('click', '.delete', function(){
         var studentKey = $(this).closest('td').attr('data-uid');
         deleteStudent(studentKey, $(this));
@@ -25,25 +25,47 @@ $(document).ready(function(){
 
 // Add config data
 
+var config = {
+    apiKey: "AIzaSyBBxyQ7kCOup1Qx4ByP1T8SVHASjPdxPew",
+    authDomain: "fir-intro-c6b06.firebaseapp.com",
+    databaseURL: "https://fir-intro-c6b06.firebaseio.com",
+    storageBucket: "fir-intro-c6b06.appspot.com",
+    messagingSenderId: "572012443995"
+};
+
+
 // Init firebase
+firebase.initializeApp(config);
 
 // Create firebase ref
+var fbRef = firebase.database();
 
 // Create event listener for the students node in your database
+fbRef.ref('students').on('value', function(snapshot) {
+    console.log("running");
+    updateDom(snapshot.val());
+    console.log('Snapshot: ', snapshot.val());
+});
 
 // Complete the addStudent function
 function addStudent(sid, sname, course, grade){
-
+    var student = {
+        'student_name': sname,
+        'student_id': sid,
+        'course': course,
+        'grade': grade
+    };
+    fbRef.ref('students').push(student);
 }
 
 // complete the delete function
 function deleteStudent(key, ele){
-
+    fbRef.ref('students/'+key).remove();
 }
 
 // complete the update function
 function updateStudent(id){
-
+    
 }
 
 function updateDom(d){
@@ -65,7 +87,7 @@ function updateDom(d){
                 class: 'btn btn-sm btn-danger delete',
                 text: 'Delete'
             });
-
+            
             table.append(row.append(id, name, course, grade, actions.append(edit, del)));
         }
     }
@@ -83,7 +105,7 @@ function getFormData(){
         var ele = $(v);
         output[ele.attr('id')] = ele.val();
     });
-
+    
     return output;
 }
 

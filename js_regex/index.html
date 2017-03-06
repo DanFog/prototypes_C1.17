@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Regex</title>
+    <script>
+        var fs1a = 'hello'.match(/e/);
+        var fs1b = 'HE entEred'.match(/[eE]/g);
+        var fs1c = 'stir the star'.match(/st[ai]r/g);
+        console.log(fs1a);
+        console.log(fs1b);
+        console.log(fs1c);
+
+        var phoneNumber = "3142218623";
+        var phoneNumberRegex = /1?\(?([0-9]{3}\)?[ -.]*([0-9]){3}[ -.]*([0-9]){4})/g;
+        console.log(phoneNumber.match(phoneNumberRegex));
+
+        var passwordRegex = /^([A-Za-z])(?=.*[a-z])(?=.*[A-Z]).{6,32}$/g;
+        var password = 'aBcAbC1.';
+        console.log(password.match(passwordRegex));
+    </script>
+</head>
+<body>
+    <h1>
+        Javascript - Regular Expressions
+    </h1>
+</body>
+</html>
